@@ -29,6 +29,23 @@ public class CompanyAdapter extends ArrayAdapter<Restaurant> {
     }
 
     @Override
+    public View getDropDownView(int position, View convertView, ViewGroup parent) {
+        View row = convertView;
+        if (row == null) {
+            row = inf.inflate(R.layout.company_list_item, null);
+        }
+
+        ImageView logoImg = row.findViewById(R.id.logoImg);
+        TextView nameTxt = row.findViewById(R.id.nameTxt);
+
+        Restaurant data = mList.get(position);
+
+        nameTxt.setText(data.getName());
+
+        return row;
+    }
+
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
         if (row == null) {

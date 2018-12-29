@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.List;
 
 import tjeit.kr.a20181229_01_spinnertest.R;
@@ -41,6 +43,8 @@ public class CompanyAdapter extends ArrayAdapter<Restaurant> {
         Restaurant data = mList.get(position);
 
         nameTxt.setText(data.getName());
+        Glide.with(mContext).load(data.getLogoURL()).into(logoImg);
+
 
         return row;
     }
@@ -58,6 +62,7 @@ public class CompanyAdapter extends ArrayAdapter<Restaurant> {
         Restaurant data = mList.get(position);
 
         nameTxt.setText(data.getName());
+        Glide.with(mContext).load(data.getLogoURL()).into(logoImg);
 
         return row;
     }
